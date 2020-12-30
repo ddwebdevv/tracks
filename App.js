@@ -8,7 +8,7 @@ import SigninScreen from './src/screens/SigninScreen';
 import SignupScreen from './src/screens/SignupScreen';
 import TrackCreateScreen from './src/screens/TrackCreateScreen';
 import TrackDetailScreen from './src/screens/TrackDetailScreen';
-import TrackListScreen from './src/screens/AccountScreen';
+import TrackListScreen from './src/screens/TrackListScreen';
 
 
 const switchNavigator = createSwitchNavigator({
@@ -25,3 +25,5 @@ const switchNavigator = createSwitchNavigator({
     Account: AccountScreen
   })
 });
+ 
+export default createAppContainer(switchNavigator);
