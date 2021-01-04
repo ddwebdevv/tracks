@@ -7,11 +7,18 @@ const authReducer = (state, action) => {
     switch (action.type) {
         case 'add_error':
             return { ...state, errorMessage: action.payload };
-        case 'signup':
+        case 'clear_error_message':
+            return { ...state, errorMessage: '' };
+        case 'signin':
             return { token: action.payload, errorMessage: '' };
         default: 
             return state;
     }
+};
+
+//clearing errorMessage in state when navigating to another screen
+const clearErrorMessage = dispatch => () => {
+    dispatch({ type: 'clear_error_message'});
 };
  
 const signup = (dispatch) => async ({ email, password }) => {
@@ -21,13 +28,12 @@ const signup = (dispatch) => async ({ email, password }) => {
         //storing token on the device 
         await AsyncStorage.setItem('token', response.data.token);
         dispatch({ 
-            type: 'signup',
+            type: 'signin',
             payload: response.data.token
         });
         //navigate to mainFlow
         navigate('TrackList');
     } catch(err) {
-        console.log(err.response.data);
         dispatch({ 
             type: 'add_error',
             payload: 'Something went wrong with sign up'
@@ -35,11 +41,25 @@ const signup = (dispatch) => async ({ email, password }) => {
     }    
 };
 
-const signin = (dispatch) => {
-    return ({ email, password }) => {
-        
-    };
-}
+const signin = (dispatch) => async ({ email, password }) => {
+    try{
+        const response = await trackerApi.post('/signin', { email, password });
+        //storing token on the device 
+        await AsyncStorage.setItem('token', response.data.token);
+        dispatch({ 
+            type: 'signin',
+            payload: response.data.token
+        });
+        //navigate to mainFlow
+        navigate('TrackList');
+    } catch (err) {
+        dispatch({
+            type: 'add_error',
+            payload: 'Something went wrong with sign in'
+        });
+    }
+};
+
 
 const signout = (dispatch) => {
     return ({ email, password }) => {
@@ -49,7 +69,7 @@ const signout = (dispatch) => {
 
 export const { Provider, Context } = createDataContext(
     authReducer,
-    { signup, signin, signout },
+    { signup, signin, signout, clearErrorMessage },
     { 
         token: null,
         errorMessage: ''
