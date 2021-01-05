@@ -11,8 +11,8 @@ const getLocation = increment => {
             accuracy: 5,
             altitude:5,
             altitudeAccuracy: 5,
-            longitude: -122.0312186 + increment * tenMetersWithDegrees,
-            latitude: 37.33233141 + increment * tenMetersWithDegrees
+            longitude: -75.1693949 + increment * tenMetersWithDegrees,
+            latitude: 39.9370413 + increment * tenMetersWithDegrees
         }
     };
 };
@@ -20,7 +20,7 @@ let counter = 0;
 setInterval(() => {
     Location.EventEmitter.emit('Expo.locationChanged', {
         watchId: Location._getCurrentWatchId(),
-        location: getLocation(counter);
+        location: getLocation(counter)
     });
     counter++;
-}, 1000)
+}, 1000);

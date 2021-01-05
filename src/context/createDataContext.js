@@ -1,3 +1,4 @@
+//automatization in creation diferent type of context
 import React, { useReducer } from 'react';
 
 export default ( reducer, actions, defaultValue) => {
