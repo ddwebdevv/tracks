@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
 import { SafeAreaView } from 'react-navigation';
+import { Ionicons } from '@expo/vector-icons';
 import Spacer from '../components/Spacer';
 import { Context as AuthContext } from '../context/AuthContext';
 
@@ -19,6 +20,18 @@ const AccountScreen = () => {
             </Spacer>
         </SafeAreaView>
     );
+};
+
+AccountScreen.navigationOptions = {
+    title: 'Account',
+    fontSize: 20,
+    tabBarIcon: <Ionicons name="ios-settings" size={35} color="#555" />,
+    tabBarOptions:{
+        style: {
+            size: 20,
+            color: 'yellow'
+        }
+    }
 };
 
 const styles = StyleSheet.create({});
