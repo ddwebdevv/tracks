@@ -24,7 +24,13 @@ const AccountScreen = () => {
 
 AccountScreen.navigationOptions = {
     title: 'Account',
-    tabBarIcon: <Ionicons name="ios-settings" size={35} color="#555" />
+    tabBarIcon: <Ionicons name="ios-settings" size={35} color="#555" />,
+    tabBarOptions: {
+        labelStyle: {
+            fontSize: 14,
+            fontWeight:'bold'
+        }
+    }
 };
 
 const styles = StyleSheet.create({});

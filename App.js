@@ -23,7 +23,13 @@ const trackListFlow = createStackNavigator({
 
 trackListFlow.navigationOptions={
   title: 'Tracks',
-  tabBarIcon: <Foundation name="list" size={35} color="#555" />
+  tabBarIcon: <Foundation name="list" size={35} color="#555" />,
+  tabBarOptions: {
+    labelStyle: {
+        fontSize: 14,
+        fontWeight:'bold'
+    }
+}
 }
 
 const switchNavigator = createSwitchNavigator({

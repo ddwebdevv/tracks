@@ -27,8 +27,14 @@ const TrackCreateScreen = ({ isFocused }) => {
 };
 
 TrackCreateScreen.navigationOptions = {
-    title: 'Add Track',
-    tabBarIcon: <Entypo name="plus" size={40} color="#555" />
+    title: 'Create Track',
+    tabBarIcon: <Entypo name="plus" size={40} color="#555" />,
+    tabBarOptions: {
+        labelStyle: {
+            fontSize: 14,
+            fontWeight:'bold'
+        }
+    }
 };
 
 export default withNavigationFocus(TrackCreateScreen);
