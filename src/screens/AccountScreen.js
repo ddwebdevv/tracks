@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
 import { SafeAreaView } from 'react-navigation';
 import { Ionicons } from '@expo/vector-icons';
@@ -24,14 +24,7 @@ const AccountScreen = () => {
 
 AccountScreen.navigationOptions = {
     title: 'Account',
-    fontSize: 20,
-    tabBarIcon: <Ionicons name="ios-settings" size={35} color="#555" />,
-    tabBarOptions:{
-        style: {
-            size: 20,
-            color: 'yellow'
-        }
-    }
+    tabBarIcon: <Ionicons name="ios-settings" size={35} color="#555" />
 };
 
 const styles = StyleSheet.create({});

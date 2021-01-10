@@ -1,6 +1,5 @@
 import '../_mockLocation';
 import React, { useContext, useCallback } from 'react';
-import { StyleSheet } from 'react-native';
 import { Text } from 'react-native-elements';
 import { SafeAreaView, withNavigationFocus } from 'react-navigation';
 import { Entypo } from '@expo/vector-icons'; 
@@ -29,16 +28,7 @@ const TrackCreateScreen = ({ isFocused }) => {
 
 TrackCreateScreen.navigationOptions = {
     title: 'Add Track',
-    fontSize: 20,
-    tabBarIcon: <Entypo name="plus" size={40} color="#555" />,
-    tabBarOptions:{
-        style: {
-            size: 20,
-            color: 'yellow'
-        }
-    }
+    tabBarIcon: <Entypo name="plus" size={40} color="#555" />
 };
-
-const styles = StyleSheet.create({});
 
 export default withNavigationFocus(TrackCreateScreen);

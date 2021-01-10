@@ -1,12 +1,11 @@
 import React, { useContext } from 'react';
-import { FlatList, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import { NavigationEvents } from 'react-navigation';
 import { Context as TrackContext } from '../context/TrackContext';
 
 const TrackListScreen = ({ navigation }) => {
     const { state, fetchTracks } = useContext(TrackContext);
-    console.log(state.length);
     return(
         <>
             <NavigationEvents
